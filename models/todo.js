@@ -10,6 +10,10 @@ const todoSchema = new mongoose.Schema({
   completed:{
       type: Boolean,
       default: false
+  },
+  userId: {
+    type: String,
+    required: true
   }
 });
 

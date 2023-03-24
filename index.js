@@ -15,7 +15,8 @@ function success(res, payload) {
 
 app.get("/todos", async (req, res, next) => {
   try {
-    const todos = await db.Todo.find({});
+    const userId = req.query.userId; // get userId from query parameter
+    const todos = await db.Todo.find({ userId }); // filter todos by userId
     return success(res, todos);
   } catch (err) {
     next({ status: 400, message: "failed to get todos" });
@@ -24,7 +25,10 @@ app.get("/todos", async (req, res, next) => {
 
 app.post("/todos", async (req, res, next) => {
   try {
-    const todo = await db.Todo.create(req.body);
+    const todoData = req.body;
+    const userId = todoData.userId; // get userId from request body
+    console.log(userId);
+    const todo = await db.Todo.create({ ...todoData, userId });
     return success(res, todo);
   } catch (err) {
     next({ status: 400, message: "failed to create todo" });
