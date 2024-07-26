@@ -1,5 +1,6 @@
 # Simple-React-todo-app-backend
-# This is a backend for my todo-app "link here" using express and mongoose
+
+This is a backend for my todo-app "https://github.com/SebuBergman/Simple-React-todo-app" using express and mongoose
 
 <!-- Run Locally -->
 ### :running: Run Locally
